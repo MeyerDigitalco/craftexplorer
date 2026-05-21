@@ -35,4 +35,5 @@ next-env.d.ts
 
 # source assets (large originals — see /public for optimized versions)
 /website files CET/
+/second files/
 /__MACOSX/

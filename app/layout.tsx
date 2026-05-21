@@ -84,7 +84,7 @@ export default function RootLayout({
               sameAs: ['https://www.linkedin.com/company/crafter-explorer-technology'],
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Weymouth',
+                addressLocality: 'Dorchester',
                 addressRegion: 'Dorset',
                 addressCountry: 'GB',
               },

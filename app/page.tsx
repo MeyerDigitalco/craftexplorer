@@ -62,6 +62,75 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ───────────────────────────  SOFTWARE IN MOTION  ─────────────────────────── */}
+      <Section className="border-t border-ink-700 bg-ink-900">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          {/* Video column */}
+          <Reveal as="div" className="lg:col-span-7">
+            <div className="relative ticks">
+              <div className="absolute -top-3 left-0 right-0 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-haze-400 pointer-events-none">
+                <span>blueHelm.exe / live</span>
+                <span>route_planner · WP1 → WP3</span>
+              </div>
+              <div className="relative overflow-hidden border border-ink-700 bg-ink-950 aspect-video">
+                <video
+                  className="absolute inset-0 w-full h-full object-contain bg-ink-950"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="/software/main-screen.jpg"
+                >
+                  <source src="/videos/software-demo.mp4" type="video/mp4" />
+                </video>
+                <CornerTicks />
+              </div>
+              <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-haze-400">
+                <span className="flex items-center gap-2">
+                  <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-signal animate-pulse" />
+                  Auto-playing demo · muted
+                </span>
+                <span>00:00 · loop</span>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Copy column */}
+          <div className="lg:col-span-5">
+            <div className="eyebrow">Software in motion</div>
+            <h2 className="display-2 mt-5 text-balance">
+              See BlueHelm <span className="text-signal">in action</span>.
+            </h2>
+            <p className="lede mt-6">
+              From mission planning to live vessel command — every interaction is
+              built around the operator. Clean tooling. Decisive feedback. No noise.
+            </p>
+
+            <ul className="mt-8 space-y-4 text-haze-200">
+              {[
+                ['Mission planning', 'Drag-and-drop waypoint routing with live route validation.'],
+                ['Live telemetry',   'Real-time vessel state, sensor feeds and comms health.'],
+                ['Autonomy controls', 'Tactical autopilots with deterministic fallback behaviour.'],
+                ['One operator, many vessels', 'Same UI scales from a single craft to a coordinated fleet.'],
+              ].map(([t, d]) => (
+                <li key={t} className="flex gap-4">
+                  <span aria-hidden className="mt-3 h-px w-6 bg-signal/80 shrink-0" />
+                  <div>
+                    <div className="font-display text-base text-haze-50">{t}</div>
+                    <div className="text-sm text-haze-300 leading-relaxed">{d}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10">
+              <Button href="/products" variant="secondary">Explore the Platform</Button>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* ───────────────────────────  MISSION STATEMENT  ─────────────────────────── */}
       <Section className="border-t border-ink-700">
         <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
@@ -201,7 +270,7 @@ export default function HomePage() {
               Designed, built &amp; supported in the United Kingdom.
             </h2>
             <p className="lede mt-6">
-              CET is headquartered in Weymouth, Dorset — on the south coast of England.
+              CET is headquartered in Dorchester, Dorset — on the south coast of England.
               Every line of code, every system integration, every customer briefing
               comes from a single sovereign team.
             </p>

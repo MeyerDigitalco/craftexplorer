@@ -8,7 +8,7 @@ export const site = {
   email: 'info@crafterexplorer.co.uk',
   linkedin: 'https://www.linkedin.com/company/crafter-explorer-technology',
   address: {
-    locality: 'Weymouth',
+    locality: 'Dorchester',
     region: 'Dorset',
     country: 'United Kingdom',
   },
@@ -80,6 +80,7 @@ export const vessels = [
       ['C2',        'BlueHelm — full integration'],
       ['Endurance', '24h+'],
     ],
+    spec: '/docs/usv-orion-spec.pdf',
   },
   {
     name: 'Phoenix',
@@ -105,6 +106,7 @@ export const vessels = [
       ['C2',        'BlueHelm — lite integration'],
       ['Endurance', 'Short-duration'],
     ],
+    spec: '/docs/usv-r5-spec.pdf',
   },
 ] as const
 

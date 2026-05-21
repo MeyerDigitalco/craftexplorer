@@ -52,7 +52,7 @@ export default function ContactPage() {
               <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-signal mb-3">Address</div>
               <address className="not-italic text-haze-200 leading-relaxed">
                 CrafterExplorer Technology Ltd<br />
-                Weymouth<br />
+                Dorchester<br />
                 Dorset, United Kingdom
               </address>
             </div>
