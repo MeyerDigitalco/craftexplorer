@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ink-950 text-haze-100 font-sans;
+    background-image:
+      radial-gradient(ellipse at 50% -10%, rgba(125, 163, 192, 0.12), transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(201, 166, 107, 0.05), transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background-color: rgba(201, 166, 107, 0.35);
+    color: #fff;
+  }
+
+  /* subtle scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #06080B; }
+  ::-webkit-scrollbar-thumb { background: #1F2632; border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: #2A3340; }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-6 md:px-10 lg:px-14;
+  }
+
+  /* small uppercase eyebrow label, hairline rule */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 font-mono text-micro uppercase text-signal/90;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block h-px w-8 bg-signal/60;
+  }
+
+  .display-1 {
+    @apply font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.95] tracking-[-0.02em];
+  }
+  .display-2 {
+    @apply font-display text-[clamp(2rem,4.5vw,3.75rem)] leading-[1.02] tracking-[-0.015em];
+  }
+  .display-3 {
+    @apply font-display text-[clamp(1.5rem,2.8vw,2.5rem)] leading-[1.1] tracking-[-0.01em];
+  }
+
+  .lede {
+    @apply text-lg md:text-xl text-haze-300 leading-relaxed max-w-2xl;
+  }
+
+  /* hairline border helper */
+  .rule {
+    @apply border-t border-ink-700;
+  }
+
+  /* tactical corner ticks for cards */
+  .ticks {
+    position: relative;
+  }
+  .ticks::before, .ticks::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: rgba(201, 166, 107, 0.7);
+    border-style: solid;
+    border-width: 0;
+  }
+  .ticks::before {
+    top: 0; left: 0;
+    border-top-width: 1px;
+    border-left-width: 1px;
+  }
+  .ticks::after {
+    bottom: 0; right: 0;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .bg-panel {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%),
+      #10141B;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent);
+            mask-image: linear-gradient(to bottom, black 60%, transparent);
+  }
+}
