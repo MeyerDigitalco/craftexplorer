@@ -61,6 +61,71 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* ───────────────────────────  PLATFORM IN MOTION (landing video)  ─────────────────────────── */}
+      <Section className="border-t border-ink-700 bg-ink-900">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          {/* Copy column */}
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <div className="eyebrow">Platform overview</div>
+            <h2 className="display-2 mt-5 text-balance">
+              A single pane of glass for the <span className="text-signal">whole mission</span>.
+            </h2>
+            <p className="lede mt-6">
+              From the first waypoint to the last data download, BlueHelm unifies
+              planning, command, autonomy and reporting in one workspace —
+              built for operators, not engineers.
+            </p>
+
+            <ul className="mt-8 space-y-4 text-haze-200">
+              {[
+                ['Unified workspace',  'No context-switching between tools — every mission discipline lives in one place.'],
+                ['Operator-first UI',  'High-density information presented without clutter; designed for decisions under pressure.'],
+                ['Mission lifecycle',  'Plan → rehearse → execute → review, all without leaving the platform.'],
+                ['Field-tested',       'Refined on real USV programmes, not whiteboards.'],
+              ].map(([t, d]) => (
+                <li key={t} className="flex gap-4">
+                  <span aria-hidden className="mt-3 h-px w-6 bg-signal/80 shrink-0" />
+                  <div>
+                    <div className="font-display text-base text-haze-50">{t}</div>
+                    <div className="text-sm text-haze-300 leading-relaxed">{d}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Video column */}
+          <Reveal as="div" className="lg:col-span-7 order-1 lg:order-2">
+            <div className="relative ticks">
+              <div className="absolute -top-3 left-0 right-0 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-haze-400 pointer-events-none">
+                <span>blueHelm.exe / introduction</span>
+                <span>platform_overview.live</span>
+              </div>
+              <div className="relative overflow-hidden border border-ink-700 bg-ink-950 aspect-video">
+                <video
+                  className="absolute inset-0 w-full h-full object-contain bg-ink-950"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src="/videos/software-landing.mp4" type="video/mp4" />
+                </video>
+                <CornerTicks />
+              </div>
+              <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-haze-400">
+                <span className="flex items-center gap-2">
+                  <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-signal animate-pulse" />
+                  Auto-playing · muted
+                </span>
+                <span>loop</span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
       {/* ───────────────────────────  PILLAR / VALUE PROP  ─────────────────────────── */}
       <Section>
         <div className="grid lg:grid-cols-12 gap-10">

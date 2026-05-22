@@ -40,12 +40,12 @@ export function Nav() {
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <Link href="/" className="group flex items-center gap-3" aria-label="CrafterExplorer Technology — home">
           <Image
-            src="/logos/cet-mark-white.png"
+            src="/logos/cet-logo-white.png"
             alt=""
-            width={64}
-            height={64}
+            width={1024}
+            height={1024}
             priority
-            className="h-8 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+            className="h-9 w-9 object-contain opacity-95 group-hover:opacity-100 transition-opacity"
           />
           <span className="hidden sm:flex flex-col leading-tight">
             <span className="font-display text-sm tracking-wider text-haze-100">CRAFTER EXPLORER</span>

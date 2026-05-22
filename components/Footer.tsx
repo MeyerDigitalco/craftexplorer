@@ -9,7 +9,7 @@ export function Footer() {
         {/* Brand + provenance */}
         <div className="md:col-span-4">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logos/cet-mark-white.png" alt="" width={80} height={80} className="h-10 w-auto" />
+            <Image src="/logos/cet-logo-white.png" alt="" width={1024} height={1024} className="h-12 w-12 object-contain" />
             <div className="leading-tight">
               <div className="font-display tracking-wider">CRAFTER EXPLORER</div>
               <div className="font-mono text-[10px] tracking-[0.3em] text-signal/80 uppercase">Technology Ltd</div>

@@ -13,6 +13,8 @@ export default function HomePage() {
     <>
       {/* ───────────────────────────  HERO  ─────────────────────────── */}
       <section className="relative isolate min-h-[100svh] flex items-end overflow-hidden">
+        {/* solid dark base — prevents any image flash before the video plays */}
+        <div aria-hidden className="absolute inset-0 -z-20 bg-ink-950" />
         {/* background video */}
         <video
           className="absolute inset-0 -z-10 h-full w-full object-cover opacity-50"
@@ -20,7 +22,7 @@ export default function HomePage() {
           muted
           loop
           playsInline
-          poster="/vessels/usv-action-1.jpg"
+          preload="auto"
         >
           <source src="/videos/usv-fleet.mp4" type="video/mp4" />
         </video>
