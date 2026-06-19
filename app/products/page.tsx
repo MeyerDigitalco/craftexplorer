@@ -323,7 +323,7 @@ export default function ProductsPage() {
           {[
             {
               src: '/buoys/buoy-1.png',
-              t: 'Sentinel-Class Buoy',
+              t: 'Corine-Class Buoy',
               d: 'Solar-powered environmental monitoring platform with satellite and cellular backhaul. Deployed for coastal, harbour and offshore intelligence.',
             },
             {
