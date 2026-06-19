@@ -144,6 +144,7 @@ export default function AboutPage() {
                 'Military & commercial applications',
                 'UK designed and developed',
                 'Vessel-agnostic platform',
+                'Developed in accordance with recognised ISO software engineering standards',
               ].map((item, i) => (
                 <li key={item} className="bg-ink-950 p-6 flex items-start gap-4 ticks">
                   <span aria-hidden className="mt-0.5 flex-shrink-0 inline-flex items-center justify-center w-6 h-6 border border-signal/70 text-signal">

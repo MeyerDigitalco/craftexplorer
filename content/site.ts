@@ -54,7 +54,7 @@ export const capabilities = [
     ],
     image: '/software/sim-instructor.jpg',
     image2: '/software/sim-operator.jpg',
-    imageCaptions: ['Instructor Station', 'Operator Station'],
+    imageCaptions: ['Operator Station', 'Instructor Station'],
   },
   {
     code: '03',
