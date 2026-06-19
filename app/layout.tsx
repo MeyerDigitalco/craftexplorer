@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { Nav } from '@/components/Nav'
 import { Footer } from '@/components/Footer'
 import { SkipLink } from '@/components/SkipLink'
+
+const GA_ID = 'G-Q94P6R9XQ5'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,6 +36,10 @@ export const metadata: Metadata = {
     'USV', 'command and control', 'C2', 'uncrewed surface vessel',
     'autonomous maritime', 'maritime software', 'UK USV',
     'BlueHelm', 'remote operations centre', 'maritime autonomy',
+    'USV simulator', 'autonomous navigation system',
+    'environmental buoy monitoring', 'USV training simulator',
+    'maritime simulation', 'autonomous vessel navigation',
+    'unmanned surface vessel autonomy', 'offshore monitoring buoy',
   ],
   authors: [{ name: 'CrafterExplorer Technology Ltd' }],
   creator: 'CrafterExplorer Technology Ltd',
@@ -62,6 +69,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-GB" className={`${inter.variable} ${grotesk.variable} ${mono.variable}`}>
+      <head>
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen flex flex-col">
         <SkipLink />
         <Nav />

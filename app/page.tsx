@@ -314,9 +314,9 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-ink-700">
           {[
             { t: 'Defence', d: 'Persistent surveillance, force multiplication, sovereign maritime capability.' },
-            { t: 'Offshore Energy', d: 'Wind farm survey, asset inspection, environmental monitoring.' },
+            { t: 'Offshore Energy', d: 'Wind farm survey, asset inspection and environmental buoy monitoring.' },
             { t: 'Hydrographic Survey', d: 'High-precision bathymetry and seafloor mapping.' },
-            { t: 'Research & Science', d: 'Persistent autonomy platforms for marine science.' },
+            { t: 'Research & Science', d: 'Persistent autonomy platforms and environmental buoy monitoring for marine science.' },
           ].map(({ t, d }, i) => (
             <Reveal key={t} delay={i * 60}>
               <div className="bg-ink-950 p-8 h-full">

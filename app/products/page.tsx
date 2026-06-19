@@ -11,7 +11,12 @@ import { capabilities, vessels, site } from '@/content/site'
 export const metadata: Metadata = {
   title: 'Software / C2',
   description:
-    'BlueHelm — UK-built command and control software for uncrewed surface vessels. Modular, certification-ready, hardware-agnostic.',
+    'BlueHelm — UK-built command and control software for uncrewed surface vessels. Integrated USV simulator, autonomous navigation system, and mission management. Modular, certification-ready, hardware-agnostic.',
+  keywords: [
+    'USV simulator', 'autonomous navigation system', 'USV command and control',
+    'BlueHelm', 'USV training simulator', 'maritime simulation software',
+    'autonomous vessel navigation', 'C2 platform USV',
+  ],
   alternates: { canonical: '/products' },
 }
 
@@ -156,6 +161,9 @@ export default function ProductsPage() {
       {/* ───────────────────────────  CAPABILITY MODULES (deep)  ─────────────────────────── */}
       {capabilities.map((c, i) => {
         const reversed = i % 2 === 1
+        const hasTwoImages = 'image2' in c && !!(c as any).image2
+        const linkedBullet = 'linkedBullet' in c ? (c as any).linkedBullet : null
+        const imageCaptions = 'imageCaptions' in c ? (c as any).imageCaptions as readonly string[] : null
         return (
           <section
             key={c.code}
@@ -173,17 +181,45 @@ export default function ProductsPage() {
                       <span>module / {c.code}</span>
                       <span>{c.title.toLowerCase().replace(/[^a-z]+/g, '_')}.live</span>
                     </div>
-                    <div className="relative overflow-hidden border border-ink-700 bg-ink-900">
-                      <Image
-                        src={c.image}
-                        alt={`${c.title} interface`}
-                        width={1600}
-                        height={1000}
-                        className="w-full h-auto"
-                        sizes="(min-width: 1024px) 55vw, 100vw"
-                      />
-                      <CornerTicks />
-                    </div>
+                    {hasTwoImages ? (
+                      <div className="grid sm:grid-cols-2 gap-3">
+                        {[
+                          { src: c.image, caption: imageCaptions?.[0] ?? '' },
+                          { src: (c as any).image2 as string, caption: imageCaptions?.[1] ?? '' },
+                        ].map(({ src, caption }) => (
+                          <div key={src} className="relative">
+                            <div className="relative overflow-hidden border border-ink-700 bg-ink-900">
+                              <Image
+                                src={src}
+                                alt={`${c.title} — ${caption}`}
+                                width={1600}
+                                height={900}
+                                className="w-full h-auto"
+                                sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 100vw"
+                              />
+                              <CornerTicks />
+                            </div>
+                            {caption && (
+                              <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-haze-400">
+                                {caption}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="relative overflow-hidden border border-ink-700 bg-ink-900">
+                        <Image
+                          src={c.image}
+                          alt={`${c.title} interface`}
+                          width={1600}
+                          height={1000}
+                          className="w-full h-auto"
+                          sizes="(min-width: 1024px) 55vw, 100vw"
+                        />
+                        <CornerTicks />
+                      </div>
+                    )}
                   </div>
                 </Reveal>
 
@@ -200,6 +236,23 @@ export default function ProductsPage() {
                         <span>{b}</span>
                       </li>
                     ))}
+                    {linkedBullet && (
+                      <li className="flex gap-4">
+                        <span aria-hidden className="mt-2.5 h-px w-5 bg-signal/80 shrink-0" />
+                        <span>
+                          {linkedBullet.text}
+                          {' — '}
+                          <a
+                            href={linkedBullet.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-signal hover:text-signal-bright underline underline-offset-4"
+                          >
+                            {linkedBullet.linkText} ↗
+                          </a>
+                        </span>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -230,6 +283,83 @@ export default function ProductsPage() {
               <p className="text-sm text-haze-300 leading-relaxed">{d}</p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      {/* ───────────────────────────  MONITOR ANY ENVIRONMENT (buoy platform)  ─────────────────────────── */}
+      <Section className="border-t border-ink-700 bg-ink-900">
+        <SectionHeader
+          eyebrow="Environmental platform"
+          title="Monitor any environment."
+          intro="Our buoy platform delivers real-time environmental intelligence from the water — robust, connected, and built for the harshest conditions."
+        />
+
+        {/* Hero video with overlay */}
+        <Reveal className="relative ticks mb-px">
+          <div className="absolute -top-3 left-0 right-0 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.25em] text-haze-400 pointer-events-none">
+            <span>buoy.platform / live</span>
+            <span>env_intel.stream</span>
+          </div>
+          <div className="relative overflow-hidden border border-ink-700 bg-ink-950 aspect-video">
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/buoys/buoy-1.png"
+              style={{ filter: 'brightness(0.75) contrast(1.05)' }}
+            >
+              <source src="/videos/buoy-monitoring.mp4" type="video/mp4" />
+            </video>
+            <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-ink-950/40 via-transparent to-ink-950/60" />
+            <CornerTicks />
+          </div>
+        </Reveal>
+
+        {/* Two photo cards below */}
+        <div className="grid md:grid-cols-2 gap-px bg-ink-700 mt-0">
+          {[
+            {
+              src: '/buoys/buoy-1.png',
+              t: 'Sentinel-Class Buoy',
+              d: 'Solar-powered environmental monitoring platform with satellite and cellular backhaul. Deployed for coastal, harbour and offshore intelligence.',
+            },
+            {
+              src: '/buoys/buoy-2.png',
+              t: 'Ruggedised Sensor Array',
+              d: 'Configurable payload suite — meteorological, oceanographic and water-quality sensors — feeding live data into the BlueHelm environmental portal.',
+            },
+          ].map(({ src, t, d }) => (
+            <div key={t} className="bg-ink-900 p-6">
+              <div className="relative aspect-[4/3] mb-5 overflow-hidden border border-ink-700">
+                <Image
+                  src={src}
+                  alt={t}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                  style={{ filter: 'brightness(0.78) contrast(1.05) saturate(0.92)' }}
+                />
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950/50 pointer-events-none" />
+              </div>
+              <h3 className="font-display text-xl mb-2">{t}</h3>
+              <p className="text-sm text-haze-300 leading-relaxed">{d}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <a
+            href="https://env.crafterexplorer.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-signal/70 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-signal hover:bg-signal hover:text-ink-950 transition-colors"
+          >
+            Visit the Environmental Portal
+            <span aria-hidden>↗</span>
+          </a>
         </div>
       </Section>
 

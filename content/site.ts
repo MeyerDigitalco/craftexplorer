@@ -31,10 +31,10 @@ export const capabilities = [
     code: '01',
     title: 'Command & Control',
     summary:
-      'A full command system for USVs of any size — tactical, mission-aware, and built for high-stakes operations.',
+      'A full command system for USVs of any size — including a tactical, mission-aware autonomous navigation system built for high-stakes operations.',
     bullets: [
       'Multi-vessel mission management',
-      'Tactical and AI-driven autopilots',
+      'Autonomous navigation system with tactical & AI-driven autopilots',
       'Real-time situational awareness',
       'Hardware-agnostic vessel integration',
     ],
@@ -44,14 +44,17 @@ export const capabilities = [
     code: '02',
     title: 'Simulation',
     summary:
-      'A full software-in-the-loop training suite for crew competency, mission rehearsal, and system validation.',
+      'A complete USV simulator and software-in-the-loop training suite for crew competency, mission rehearsal, and system validation.',
     bullets: [
-      'Realistic environmental modelling',
-      'Hardware-in-the-loop ready',
+      'Realistic and configurable environmental modelling',
+      'Emergency procedure training and simulation',
       'Operator certification workflows',
-      'Replay & after-action review',
+      'Training centre scenario validation and assessment',
+      'New operator familiarisation and onboarding / CPD',
     ],
-    image: '/software/vision.jpg',
+    image: '/software/sim-instructor.jpg',
+    image2: '/software/sim-operator.jpg',
+    imageCaptions: ['Instructor Station', 'Operator Station'],
   },
   {
     code: '03',
@@ -64,7 +67,12 @@ export const capabilities = [
       'Mission reporting & export',
       'API access for downstream systems',
     ],
-    image: '/software/active-comms.jpg',
+    linkedBullet: {
+      text: 'Real-time environmental intelligence portals for clients, hotels and visitor centres',
+      linkText: 'env.crafterexplorer.co.uk',
+      href: 'https://env.crafterexplorer.co.uk',
+    },
+    image: '/software/env-portal.png',
   },
 ] as const
 
@@ -117,13 +125,6 @@ export const team = [
     image: '/team/peter-walker.jpg',
     bio:
       'A recognised innovator in the USV sector. Previously Technical Director at Sea-Kit, where he helped build the company from start-up into a multi-million-pound, world-leading USV builder — personally winning industry awards. Background in marine science, electrical and mechanical engineering, with a lifelong passion for diving and ocean exploration.',
-  },
-  {
-    name: 'Steve Monk',
-    role: 'Operations',
-    image: '/team/steve-monk.jpg',
-    bio:
-      'Extensive maritime and operational leadership experience, including senior Operations Manager roles at L3Harris and Fugro. Has delivered complex offshore and marine technology programmes in demanding environments, with strong links to military operations and training.',
   },
 ] as const
 

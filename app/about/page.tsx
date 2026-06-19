@@ -94,30 +94,75 @@ export default function AboutPage() {
           title="The people behind the platform."
         />
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:gap-16 max-w-5xl mx-auto">
           {team.map((m, i) => (
             <Reveal key={m.name} delay={i * 80}>
-              <article className="grid sm:grid-cols-12 gap-6">
-                <div className="sm:col-span-5 relative ticks">
+              <article className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+                <div className="lg:col-span-5 relative ticks">
                   <div className="relative aspect-[4/5] overflow-hidden border border-ink-700 bg-ink-900">
                     <Image
                       src={m.image}
                       alt={m.name}
                       fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 40vw, 100vw"
+                      sizes="(min-width: 1024px) 40vw, (min-width: 640px) 60vw, 100vw"
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     />
                     <CornerTicks />
                   </div>
                 </div>
-                <div className="sm:col-span-7">
+                <div className="lg:col-span-7">
                   <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-signal">{m.role}</div>
-                  <h3 className="font-display text-3xl tracking-tight mt-2">{m.name}</h3>
-                  <p className="mt-4 text-haze-300 leading-relaxed">{m.bio}</p>
+                  <h3 className="font-display text-4xl lg:text-5xl tracking-tight mt-2">{m.name}</h3>
+                  <p className="mt-6 text-haze-300 leading-relaxed text-base lg:text-lg">{m.bio}</p>
                 </div>
               </article>
             </Reveal>
           ))}
+        </div>
+      </Section>
+
+      {/* WHY CET? */}
+      <Section className="border-t border-ink-700">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-5">
+            <div className="eyebrow">Why CET?</div>
+            <h2 className="display-2 mt-5 text-balance">
+              Built by <span className="text-signal">operators</span>. Designed by <span className="text-signal">engineers</span>.
+            </h2>
+            <p className="lede mt-6">
+              We&apos;re not a startup chasing a market — we&apos;ve worked in
+              this one for years. Every feature is the answer to a problem
+              we&apos;ve faced on the water ourselves.
+            </p>
+          </div>
+
+          <div className="lg:col-span-7">
+            <ul className="grid sm:grid-cols-2 gap-px bg-ink-700">
+              {[
+                'Real-world offshore experience',
+                'Proven USV deployments',
+                'Military & commercial applications',
+                'UK designed and developed',
+                'Vessel-agnostic platform',
+              ].map((item, i) => (
+                <li key={item} className="bg-ink-950 p-6 flex items-start gap-4 ticks">
+                  <span aria-hidden className="mt-0.5 flex-shrink-0 inline-flex items-center justify-center w-6 h-6 border border-signal/70 text-signal">
+                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" />
+                    </svg>
+                  </span>
+                  <div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-signal mb-1">
+                      {String(i + 1).padStart(2, '0')} / Capability
+                    </div>
+                    <div className="font-display text-base lg:text-lg text-haze-50 leading-snug">
+                      {item}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Section>
 
